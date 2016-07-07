@@ -176,6 +176,27 @@ var MundoTitle = connectToState(Title, (state, props) => {
   }
 });
 
+class ClearButton extends React.Component {
+  clearAllValues() {
+    // ...
+  }
+
+  render() {
+    const isDisabled = this.props.disabled;
+    return (
+      <button disabled={isDisabled} onClick={() => this.clearAllValues()}>
+        Clear All
+      </button>
+    );
+  }
+}
+
+var ConnectedClearButton = connectToState(ClearButton, (state) => {
+  return {
+    // ... ?
+  };
+});
+
 class ControlledInputList extends React.Component {
   render() {
     return (
@@ -183,9 +204,7 @@ class ControlledInputList extends React.Component {
         <button onClick={() => this.props.onToggle()}>
           Toggle
         </button>
-        <button onClick={() => this.addValue()}>
-          Add One
-        </button>
+        <ConnectedClearButton />
         <MundoTitle />
         <ul>
           <li>

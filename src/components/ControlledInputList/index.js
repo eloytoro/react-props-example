@@ -2,23 +2,14 @@ import MyInput from '../MyInput';
 import style from '../style.css';
 
 class ControlledInputList extends React.Component {
-  state = {
-    values: ['hola', 'mundo']
-  }
-
-  updateState(value, index) {
-    const newValues = [].concat(this.state.values);
-    newValues[index] = value;
-    this.setState({ values: newValues });
-  }
-
   renderValues() {
-    return this.state.values.map((value, index) => {
+    if (this.props.isOpen === false) return null;
+    return this.props.values.map((value, index) => {
       return (
         <li key={index}>
           <MyInput
             value={value}
-            onChange={(value) => this.updateState(value, index)}
+            onChange={(value) => this.props.onChange(value, index)}
           />
         </li>
       );
@@ -26,14 +17,15 @@ class ControlledInputList extends React.Component {
   }
 
   addValue() {
-    this.setState({
-      values: this.state.values.concat('nuevo')
-    });
+    this.props.onAdd();
   }
 
   render() {
     return (
       <div className={style.col}>
+        <button onClick={() => this.props.onToggle()}>
+          Toggle
+        </button>
         <button onClick={() => this.addValue()}>
           Add One
         </button>

@@ -10,7 +10,7 @@ export default () => {
       colors: true,
       chunkModules: false
     }
-  }).listen(8080, 'localhost', () => {
+  }).listen(8080, '0.0.0.0', () => {
     console.log('[webpack-dev-server]', 'Listening at port 8080');
   });
 }

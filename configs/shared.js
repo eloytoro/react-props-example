@@ -43,7 +43,7 @@ module.exports = ({
       loaders: [{
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'react-hot!babel'
       }, {
         test: /\.css$/,
         loader: `style!css?modules${optimize ? '&minify' : ''}&localIdentName=[local]-[hash:base64:6]!postcss`

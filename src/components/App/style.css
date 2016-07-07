@@ -1,7 +1,0 @@
-$color: blue;
-
-.container {
-  width: 300px;
-  color: $color;
-  text-align: center;
-}

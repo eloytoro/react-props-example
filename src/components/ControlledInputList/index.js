@@ -1,4 +1,5 @@
 import MyInput from '../MyInput';
+import style from '../style.css';
 
 class ControlledInputList extends React.Component {
   state = {
@@ -32,7 +33,7 @@ class ControlledInputList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.col}>
         <button onClick={() => this.addValue()}>
           Add One
         </button>

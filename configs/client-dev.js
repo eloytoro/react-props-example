@@ -5,9 +5,8 @@ const createConfig = require('./shared');
 module.exports = createConfig({
   devtool: 'eval',
   prefixes: [
-    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server'
+    'webpack/hot/only-dev-server'
   ],
   plugins: [
     new VisualizerPlugin(),

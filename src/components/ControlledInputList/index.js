@@ -194,9 +194,12 @@ class ClearButton extends React.Component {
 
 var ConnectedClearButton = connectToState(ClearButton, (state) => {
   var valor = false;
-  console.log(valor)
+  var count = 0;
   state.values.forEach(value =>{
     if( value == ''){
+      count++;
+    }
+    if (count == (state.values.length)){
       valor = true;
     }
   });

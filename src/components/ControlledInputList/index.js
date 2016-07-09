@@ -178,7 +178,8 @@ var MundoTitle = connectToState(Title, (state, props) => {
 
 class ClearButton extends React.Component {
   clearAllValues() {
-    // ...
+   var newValues = state.values.map(value => value = '')
+   setState({values:newValues});
   }
 
   render() {
@@ -192,8 +193,15 @@ class ClearButton extends React.Component {
 }
 
 var ConnectedClearButton = connectToState(ClearButton, (state) => {
+  var valor = false;
+  console.log(valor)
+  state.values.forEach(value =>{
+    if( value == ''){
+      valor = true;
+    }
+  });
   return {
-    // ... ?
+    disabled: valor
   };
 });
 

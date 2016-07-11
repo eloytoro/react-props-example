@@ -178,7 +178,9 @@ var MundoTitle = connectToState(Title, (state, props) => {
 
 class ClearButton extends React.Component {
   clearAllValues() {
-    // ...
+    setState({
+      values: ['', '']
+    });
   }
 
   render() {
@@ -193,7 +195,7 @@ class ClearButton extends React.Component {
 
 var ConnectedClearButton = connectToState(ClearButton, (state) => {
   return {
-    // ... ?
+    disabled: state.values.every(value => value === '')
   };
 });
 
